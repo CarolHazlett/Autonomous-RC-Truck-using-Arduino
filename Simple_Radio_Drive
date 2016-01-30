@@ -1,0 +1,20 @@
+#include <Servo.h>
+#include <MINDSi.h>
+
+Servo drive, steer;
+int driveSig, steerSig;
+
+void setup() {
+  drive.attach(5);
+  steer.attach(4);   
+  drive.write(90);
+  steer.write(90);
+  delay(2000);
+}
+
+void loop() {
+  driveSig = getRadio(3);
+  steerSig = getRadio(2);
+  drive.write( driveSig );
+  steer.write( steerSig );
+}
