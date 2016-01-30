@@ -1,0 +1,27 @@
+
+#include <MINDSi.h>
+#include <Servo.h>
+ 
+Servo drive, steer;
+
+int val1;  //steer
+int val2;  //drive
+
+void setup() {
+  Serial.begin(9600); 
+  drive.attach(5);
+  steer.attach(4);
+  delay(5000); 
+}
+
+void loop() {
+  val1 = getRadio(2);
+  val2 = getRadio(3);    
+    Serial.print("Steer:  ");
+    Serial.println(val1);
+    Serial.print("Drive:  ");
+    Serial.println(val2);
+    delay(300);
+  }
+
+  
