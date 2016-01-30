@@ -1,0 +1,43 @@
+#include <Servo.h>
+#include <MINDSi.h>
+
+Servo drive, steer;
+
+void setup(){
+  drive.attach(5);
+  steer.attach(4);
+  drive.write(90);
+  steer.write(90);
+  delay(2000);
+}
+
+void loop(){
+  int pos1 = 90;
+  int dtwait1 = 300;
+   for (pos1 = 90; pos1 < 120; pos1 += 1){
+    drive.write(pos1);
+    delay(dtwait1);
+  }
+  for (pos1 = 120; pos1 >= 90; pos1 -= 1) {
+    drive.write(pos1);
+    delay(dtwait1);
+  }
+    
+  drive.write(20);
+  delay(200);
+  drive.write(90);
+  delay(200);
+  
+  int pos2 = 90;
+  int dtwait2 = 300;
+   for (pos2 = 90; pos2 >= 60; pos2 -= 1){
+    drive.write(pos2);
+    delay(dtwait2);
+  }
+  for (pos2 = 60; pos2 < 90; pos2 += 1) {
+    drive.write(pos2);
+    delay(dtwait2);
+  }
+}
+  
+
